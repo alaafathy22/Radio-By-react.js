@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import "../src/MyFiles/Mystyiles.css";
-import "../src/MyFiles/Myplugins.js";
+import "../src/MyFiles/homeAnimation.js";
 import HomePage from "../src/MyFiles/HomePage";
 import "bootstrap/dist/css/bootstrap.min.css";
 

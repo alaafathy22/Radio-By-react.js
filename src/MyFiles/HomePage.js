@@ -11,22 +11,23 @@ class HomePgae extends Component {
     radios_with_out_overwrite: [],
   };
   live_search = () => {
-    if (document.getElementById("search_channel").value.length > 0) {
-      document.getElementById("icon_remove2").style.display = "block";
+    let search_channel = document.getElementById("search_channel"),
+      icon_remove2 = document.getElementById("icon_remove2");
+    if (search_channel.value.length > 0) {
+      icon_remove2.style.display = "block";
     } else {
-      document.getElementById("icon_remove2").style.display = "none";
+      icon_remove2.style.display = "none";
     }
     let results = this.state.radios_with_out_overwrite.filter((items) => {
-      return items.name.includes(
-        document.getElementById("search_channel").value
-      );
+      return items.name.includes(search_channel.value);
     });
     this.setState({
       radios: results,
     });
   };
   clearInput = () => {
-    document.getElementById("search_channel").value = "";
+    let search_channel = document.getElementById("search_channel");
+    search_channel.value = "";
     this.live_search();
   };
   componentDidMount = (event) => {
@@ -151,6 +152,7 @@ class HomePgae extends Component {
                 <div className="mycard" id="mycard">
                   <h6 className="card-title">{radios.name}</h6>
                   <button
+                    name="button_play"
                     className="btn btn-primary button_play"
                     id={radios.id}
                     onClick={add_whiteList.bind(this, radios.id)}
